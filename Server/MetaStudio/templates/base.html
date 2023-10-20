@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="{{url_for('static',filename='js/metamask-sdk.js')}}"></script> -->
+    <title>MetaStudio</title>
+    <style>
+        body {
+            background-color: rgb(25, 25, 27);
+            color: white;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .nav-item {
+            color: white;
+        }
+
+        .modal-body {
+            background-color: rgb(25, 25, 27);
+            ;
+        }
+
+        .modal-content {
+            background-color: rgb(25, 25, 27);
+            ;
+
+        }
+
+        .modal-footer {
+            background-color: rgb(25, 25, 27);
+            ;
+
+        }
+
+        .modal-header {
+            background-color: rgb(25, 25, 27);
+            ;
+
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .form-img {
+            background-repeat: no-repeat;
+            background-image: url("#");
+            /* Background Image for Forms*/
+            background-blend-mode: lighten;
+            background-attachment: fixed;
+            /* border:1px solid; */
+            background-size: 100% 100%;
+        }
+
+        .page-header {
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 0%;
+            border-bottom: 1px solid yellow;
+            letter-spacing: 5px;
+        }
+
+        p.subhead {
+            color: white;
+            margin: 0%;
+            text-align: center;
+            font-variant: small-caps;
+        }
+
+        .main-content {
+            padding: 15px;
+            padding-top: 25px;
+        }
+
+        .navbar {
+            background-color: black !important;
+        }
+
+        .form-img {
+            background-repeat: no-repeat;
+            background-image: url("#");
+            /* Background Image for Forms*/
+            background-blend-mode: lighten;
+            background-attachment: fixed;
+            /* border:1px solid; */
+            background-size: 100% 100%;
+        }
+
+        .card {
+            background-color: inherit !important;
+        }
+
+        .form-style {
+            margin: 0 auto;
+            width: 60%;
+        }
+
+        .form-control {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        table.table-fit {
+            width: auto !important;
+            table-layout: auto !important;
+        }
+
+        .timeline {
+            white-space: nowrap;
+            overflow-x: auto;
+            padding: 30px 0 10px 0;
+            position: relative;
+        }
+
+        .entry {
+            display: inline-block;
+            vertical-align: top;
+            background: inherit;
+            color: white;
+            padding: 10px;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+            border: 1px solid white;
+            border-top: 4px solid white;
+            border-radius: 3px;
+            min-width: 200px;
+            min-height: 200px;
+            max-width: 500px;
+        }
+
+        .entry img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .entry:after {
+            content: '';
+            display: block;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border-radius: 6px;
+            border: 3px solid white;
+            position: absolute;
+            left: 50%;
+            top: -30px;
+            margin-left: -6px;
+        }
+
+        .entry:before {
+            content: '';
+            display: block;
+            background: white;
+            width: 5px;
+            height: 20px;
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            margin-left: -2px;
+        }
+
+        .entry h1 {
+            color: rgb(241, 238, 28);
+            font-size: 18px;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .entry h2 {
+            letter-spacing: .2em;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .bar {
+            height: 4px;
+            background: white;
+            width: auto;
+            position: relative;
+            top: 13px;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row sticky-top" style="background-color: black;">
+        <div class="col-md-5">
+            <h4 class="page-header">MetaStudio</h4>
+            <p class="subhead"> Metaverse Platform for Artists to Create AI ART</p>
+        </div>
+        <div class="col-md-7">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('Profile.Dashboard')}}">Dashboard</a>
+                    </li>
+                    {% if current_user.is_authenticated==True %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Welcome, {{current_user.user_name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('Profile.Logout')}}">Logout </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

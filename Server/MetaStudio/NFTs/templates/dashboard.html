@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid" style="color: white!important;">
+
+    <div class="row">
+        {% for NFT in NFTs %}
+        <div class="card col-sm-3" style="background-color: black !important; margin: 5px;">
+            <img class="card-img-top" width="200" height="200" src="{{NFT['image']}}"
+                alt="{{NFT['name']}}">
+            <div class="card-body">
+                <h4 class="card-title">{{NFT['name']}}</h4>
+                <p class="card-text">{{NFT['description']}}</p>
+                <a href='{{"https://testnets.opensea.io/assets/avalanche-fuji/{}/{}".format(NFT["contract_address"],NFT["token_uri"])}}'
+                    class="btn btn-primary" target="_blank">Open in Opensea</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

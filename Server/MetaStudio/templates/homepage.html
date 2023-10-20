@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container card" style="color: white!important;">
+
+    <br>
+    <br>
+    <h3 class="title" style="text-align: center;">Login</h3>
+    <div class="col-md-12 form-img card-body ">
+        <form method="POST" action="{{url_for('Profile.Authenticate')}}" style="width: 50%;margin-left : 25%;">
+            <div class="row">
+                <div class="col">
+                    <input class="form-control input-lg" type="text" name="username" placeholder="UserName"
+                        autofocus="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control input-lg" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <center><button class="btn btn-success font-weight-bold" type="submit">Login</button></center>
+        </form>
+    </div>
+    <br>
+    <br>
+    <h3 class="title" style="text-align: center;">Register Account</h3>
+    <div class="col-md-12 form-img card-body ">
+        <form method="POST" action="{{url_for('Profile.CreateUser')}}" style="width: 50%;margin-left : 25%;">
+            <div class="row">
+                <div class="col">
+                    <input class="form-control input-lg" type="text" name="username" placeholder="User Name"
+                        autofocus="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control input-lg" type="text" name="useremail" placeholder="User Email"
+                        autofocus="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control input-lg" type="text" name="useraddress" placeholder="Avalanche Address"
+                        autofocus="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control input-lg" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <center><button class="btn btn-success font-weight-bold" type="submit">Register</button></center>
+        </form>
+    </div>
+</div>
+{% endblock %}

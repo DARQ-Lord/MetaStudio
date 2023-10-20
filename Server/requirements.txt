@@ -1,0 +1,9 @@
+flask
+flask-restful
+eth-brownie
+py-solc-x
+flask_sqlalchemy
+flask_restful
+flask_login
+wtforms
+flask_wtf

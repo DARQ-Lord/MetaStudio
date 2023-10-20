@@ -1,0 +1,15 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@3.4.0
+reports:
+  exclude_contracts:
+    - LinkToken
+    - VRFCoordinatorMock
+    - ERC721
+    - EnumerableMap
+    - Address
+    - EnumerableSet
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.4.0"
+dotenv: .env
